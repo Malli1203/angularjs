@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script src="js/angular.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+
+<form>
+First Name : <input type="text" ng-model="firstname">
+
+</form>
+
+</div>
+<script>
+ let  app = angular.module('myApp', []);
+  app.controller('formCtrl', function($scope){
+  $scope.firstname = "Microsoft";
+  });
+</script>
+
+</body>
+</html>
