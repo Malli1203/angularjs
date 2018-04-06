@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="js/angular.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<p>Select a car:</p>
+
+<select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+</select>
+
+<h1>You selected: {{selectedCar.brand}}</h1>
+<h2>Model: {{selectedCar.model}}</h2>
+<h3>Color: {{selectedCar.color}}</h3>
+
+</div>
+<p>Note that the selected value represents an object.</p>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = {
+	    car00 : {brand : "Benz", model : "C class", color : "black"},
+        car01 : {brand : "Ford", model : "S class", color : "gray"},
+        car02 :{brand : "Fiat", model :  "d class", color : "white"},
+        car03 : {brand : "Volvo" ,model : "E class", color : "red"}
+    }
+});
+</script>
+</body>
+</html>
