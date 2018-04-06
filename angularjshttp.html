@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="js/angular.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>Today's welcome message is:</p>
+<h1>{{myMessage}}</h1>
+</div>
+<p>The $http service requests a page on the server, and the response is set as 
+the value of the "myWelcome" variable.</p>
+<script>
+let app = angular.module('myApp',[]);
+ app.controller('myCtrl', function($scope, $http){
+   $http({
+   method : "Get",
+   url : "myheading.html"
+   }).then(function mySuccess(response){
+   $scope.myMessage = response.data;
+   }, function myError(response){
+   $scope.myMessage = response.statusText;
+   
+   });
+   
+   
+ });
+</script>
+</body>
+</html>

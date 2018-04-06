@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="js/angular.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="custCtrl"> 
+
+<table>
+<tr ng-repeat="x in names">
+<td>{{ x . Name }}</td>
+<td>{{ x . Country }}</td>
+</tr>
+</table>
+
+</div>
+
+<script>
+/*
+           let app = angular.module("myApp", []);
+                    app.controller("custCtrl", function($scope, $http)){
+                          $http.get("cust.php").then(function (response){
+                                    $scope.names = response.data.records; });
+});
+*/
+
+
+
+var app = angular.module('myApp', []);
+app.controller('custCtrl', function($scope, $http) {
+    $http.get("cust.php")
+    .then(function (response) {$scope.names = response.data.records;
+	});
+});
+</script>
+
+</body>
+</html>
